@@ -196,9 +196,9 @@ if [[ ${NO_INSTALL} == true ]]; then
 fi
 
 # Ask user where they want to install the SN
-read -rp "Where would you like to install Omron? (./omron): " INSTALL_PATH </dev/tty
-INSTALL_PATH=${INSTALL_PATH:-./omron}
-
+#read -rp "Where would you like to install Omron? (./omron): " INSTALL_PATH </dev/tty
+#INSTALL_PATH=${INSTALL_PATH:-./omron}
+INSTALL_PATH=./omron
 # Clone SN repo into user's specified directory
 if ! [[ -d ${INSTALL_PATH} ]]; then
 	git clone https://github.com/inference-labs-inc/omron-subnet.git "${INSTALL_PATH}"
@@ -207,9 +207,9 @@ else
 fi
 
 # Ask user for virtualenv type
-read -rp "Which virtualenv would you like to use? (venv/virtualenv/none): " VENV_TYPE </dev/tty
-VENV_TYPE=${VENV_TYPE:-none}
-
+#read -rp "Which virtualenv would you like to use? (venv/virtualenv/none): " VENV_TYPE </dev/tty
+#VENV_TYPE=${VENV_TYPE:-none}
+VENV_TYPE=none
 # Install and activate virtualenv if requested
 if [[ ${VENV_TYPE} == "venv" ]]; then
 	echo "Setting up venv..."
